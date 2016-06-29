@@ -1,0 +1,820 @@
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>NASA Test</title>
+		<!-- Horizon CSS -->
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+		<!--<link href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" rel="stylesheet">-->
+		<!-- Application specific CSS -->
+		<link rel="stylesheet" href="app.css">		
+	</head>
+	<body class="page-ppe page-dashboard">
+		<!-- main content -->
+		<div class="container">
+			<div class="page-header">
+				<h1 class="page-title">NASA Time Trial B-F Class Calculator 2016</h1>
+			</div>
+			<div class="alert alert-danger">
+				<i class="fa fa-exclamation-triangle" aria-hidden="true"></i> This is an unoffical calculator! For the offical calculator and rules <a target="_blank" href="http://www.nasa-tt.com/Rules">click here!</a>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="well">
+						<h3><strong id="calculatedClass"></strong> <small class="hidden-sm hidden-xs">is your TT class (if also within Adjusted Wt/HP Ratio limits)</small></h3>
+						<p><strong id="calculatedPoints"></strong> Points (<span id="pointsMessage"></span>)</p>
+					</div>	
+					<form class="tt-calc-form">
+						<div>
+							<select class="form-control input" id="baseClassSelect" name="baseClass">
+								<option value="TTB">TTB</option>
+								<option value="TTC">TTC</option>
+								<option value="TTD">TTD</option>
+								<option value="TTE">TTE</option>
+								<option value="TTF">TTF</option>
+								<option value="TTG">TTG</option>
+								<option value="TTH">TTH</option>
+							</select>
+							<label for="baseClass">Base Class</label>
+						</div>
+						<br>
+						<div>
+							<select class="form-control dropdown-input" name="asterixPoints">
+								<option value="0" selected="">0</option>
+								<option value="7">7</option>
+								<option value="14">14</option>
+							</select>
+							<label for="asterixPoints">Asterix Points</label>
+						</div>
+					</form>
+				</div>
+				<div class="col-md-6">
+					<div class="panel-group" id="accordion-tires" role="tablist" aria-multiselectable="true">
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="heading-tires">
+								<h4 class="panel-title">
+									<a role="button" data-toggle="collapse" data-parent="#accordion-tires" href="#collapse-tires" aria-expanded="true" aria-controls="collapse-tires">
+									  Section A - TIRES
+									</a>
+								</h4>
+							</div>
+							<div id="collapse-tires" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-tires">
+								<div class="panel-body">
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="22" data-section="tires" name="A1">
+											&nbsp;<strong>A1</strong> - The following DOT approved R-Compound Tires: BFG R1S, Goodyear Eagle RS AC, Hoosier A7, Hankook Z217 (C90 & C91 Compounds), Hoosier Wet DOT (if used in dry conditions) +22
+										</label>
+									</div>
+									
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="17" data-section="tires" name="A2">
+											&nbsp;<strong>A2</strong> - The following DOT approved R-Compound Tires: Hoosier A6 +17
+										</label>
+									</div>
+									
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="10" data-section="tires" name="A3">
+											&nbsp;<strong>A3</strong> - The following DOT approved R-Compound Tires: BFG R1, Goodyear RS, Hankook Z214 (C71, C70, C51, C50), Hoosier R7, Kumho V710 +10
+										</label>
+									</div>
+									
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="9" data-section="tires" name="A4">
+											&nbsp;<strong>A4</strong> - The following DOT approved R-compound tires: Hoosier SM7 +9
+										</label>
+									</div>
+									
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="8" data-section="tires" name="A5">
+											&nbsp;<strong>A5</strong> - The following DOT approved R-Compound Tires: Hoosier R6, Hoosier SM6 (note: CTSC EC-Dry Tires (225, 245, 275) OK) +8
+										</label>
+									</div>
+									
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="7" data-section="tires" name="A6">
+											&nbsp;<strong>A6</strong> - The following DOT approved R-Compound Tires: Toyo Proxes RR, Hankook TD, Pirelli Trofeo R +7
+										</label>
+									</div>
+									
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="6" data-section="tires" name="A7">
+											&nbsp;<strong>A7</strong> - The Following DOT approved tires and those R-compound tires with a UTQG treadwear rating over 40:  BFG Rival S, Bridgestone REO71-R, Maxxis RC-1 (ex. Kumho V700, Kumho V720, Michelin Pilot Sport Cup & MPS Cup 2, Nitto NT01, Pirelli PZero Corsa, Toyo R888, Toyo RA-1, Yokohama A048, etc.) +6
+										</label>
+									</div>
+									
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="2" data-section="tires" name="A8">
+											&nbsp;<strong>A8</strong> - DOT-Approved (non-R-compound) tires with a UTQG treadwear rating of 120-200 (ex. BFG g-Force Rival, Toyo R1R, Dunlop Direzza Sport ZII Star Spec, Bridgestone Potenza RE070, Kumho Ecsta XS, Yokohama Advan A046 & Neova AD08, Hankook R-S3) +2
+										</label>
+									</div>
+									
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="30" data-section="tires" name="A9">
+											&nbsp;<strong>A9</strong> - Non-DOT slicks +30 (note - certain Non-DOT tires such as Continental Tire Series Tires are +10 - see ruleset for list)
+										</label>
+									</div>
+									<br><br>
+									<div>
+										<input type="number" class="form-control tire-size-input" name="actualTireSize" id="actualTireSize" data-section="tires" value="245">
+										<label for="actualTireSize">Actual Largest Tire Size</label>
+									</div>
+									<div>
+										<input type="number" class="form-control tire-size-input" name="baseClassTireSize" id="baseClassTireSize" data-section="tires" value="245" disabled>
+										<label for="baseClassTireSize">Base Class Tire Size</label>
+									</div>
+									<div>
+										<strong id="tireSizeDifference">0</strong> mm difference = <strong id="tireSizePoints">0</strong> points
+										<br>
+										<small>Exceptions: The Hoosier 255/35/18 (A6 & R6) will be assessed points based on its actual 275mm size (and not the 255mm listed on the sidewall)</small>
+									</div>
+									<br><br>
+									<div>
+										Total Tire Points: <strong id="subtotal-tires">0</strong>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel-group" id="accordion-weight" role="tablist" aria-multiselectable="true">
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="heading-weight">
+								<h4 class="panel-title">
+									<a role="button" data-toggle="collapse" data-parent="#accordion-weight" href="#collapse-weight" aria-expanded="true" aria-controls="collapse-weight">
+									  Section B - WEIGHT REDUCTION
+									</a>
+								</h4>
+							</div>
+							<div id="collapse-weight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-weight">
+								<div class="panel-body">
+									<div>
+										<input type="number" class="form-control weight-input" name="baseWeight" id="baseWeight" value="3000">
+										<label for="baseWeight">Base Weight/Listed Weight</label>
+									</div>
+									<div>
+										<input type="number" class="form-control weight-input" name="competitionWeight" id="competitionWeight" value="3000">
+										<label for="competitionWeight">Minimum Competition Weight</label>
+									</div>
+									<div>
+										<strong id="weightDifference">0</strong> lbs reduction = <strong id="weightPoints">0</strong> points
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel-group" id="accordion-engine" role="tablist" aria-multiselectable="true">
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="heading-engine">
+								<h4 class="panel-title">
+									<a role="button" data-toggle="collapse" data-parent="#accordion-engine" href="#collapse-engine" aria-expanded="true" aria-controls="collapse-engine">
+									  Section C - ENGINE
+									</a>
+								</h4>
+							</div>
+							<div id="collapse-engine" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-engine">
+								<div class="panel-body">
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="5" data-section="engine" name="C0">
+											&nbsp;Forced Induction Vehicles Check Box (unless re-classed by Dyno testing) +5
+										</label>
+									</div>
+									
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="0" data-section="engine" name="C1">
+											&nbsp;<strong>C1, C2</strong> - See ruleset please. Check box if your car has been reclassified by National Director under either of these rules or if you have a custom reclassification from the National Director
+										</label>
+									</div>
+									
+									<div>
+										<select class="form-control dropdown-input" data-section="engine" name="C3">
+											<option value="0" selected>None</option>
+											<option value="3">Naturally Aspirated</option>
+											<option value="10">Forced Induction</option>
+										</select>
+										<label for="C3"><strong>C3</strong> - Aftermarket computer system (any non-BTM “stand-alone” or “piggyback”): +3 naturally aspirated, +10 forced induction</label>
+									</div>
+									
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="1" data-section="engine" name="C4">
+											&nbsp;<strong>C4</strong> - Modification of the BTM air intake/box, air filter location, air piping to the turbo/supercharger/intercooler/throttle body/carburetor, or hood/fascia/fender air inlet(s), outlets, or vents +1 (air filter upgrade alone 0 pts.)
+										</label>
+									</div>
+									
+									<div>
+										<select class="form-control dropdown-input" data-section="engine" name="C5">
+											<option value="0" selected>None</option>
+											<option value="2">Throttle Body</option>
+											<option value="4">ITBs</option>
+										</select>
+										<label for="C5"><strong>C5</strong> - Non-BTM, deleted or modified/ported throttle body +2; independent throttle bodies +4</label>
+									</div>
+									
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="3" data-section="engine" name="C6">
+											&nbsp;<strong>C6</strong> - Non-BTM or modified carburetor, fuel rail, fuel injectors, fuel pump(s), and/or fuel pressure regulator +2 (no points for fuel pump alone if using BTM fuel and timing maps, sensor inputs, and ignition timing)
+										</label>
+									</div>
+									
+									<div>
+										<select class="form-control dropdown-input" data-section="engine" name="C7">
+											<option value="0" selected>None</option>
+											<option value="1">4 cyl</option>
+											<option value="2">6 cyl</option>
+											<option value="3">8 cyl</option>
+											<option value="2">12A</option>
+											<option value="2">13B</option>
+											<option value="3">All other rotart</option>
+										</select>
+										<label for="C7"><strong>C7</strong> - Non-BTM, modified/ported, or deleted intake manifold: 4cyl +1, 6cyl +2, 8cyl +3, 12A &13B rotary +2, all other rotary +3</label>
+									</div>
+									
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="6" data-section="engine" name="C8">
+											&nbsp;<strong>C8</strong> - Water injection system +6 (alcohol-water mixtures are not permitted)
+										</label>
+									</div>
+									
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="0" data-section="engine" name="C9" disabled>
+											&nbsp;<strong>C9</strong> - C9 - Nitrous Oxide injection is not permitted
+										</label>
+									</div>
+									
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="1" data-section="engine" name="C10">
+											&nbsp;<strong>C10</strong> - Replacement pulleys (other than for supercharger) or non-electrical fan removal +1
+										</label>
+									</div>
+									
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="4" data-section="engine" name="C11">
+											&nbsp;<strong>C11</strong> - Replacement pulley for BTM supercharger or replacement of any pulley that affects BTM supercharger speed +4
+										</label>
+									</div>
+									
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="4" data-section="engine" name="C12">
+											&nbsp;<strong>C12</strong> - Aftermarket boost controller or modification/alteration of the BTM vacuum line(s) that serve to function as a boost controller +4
+										</label>
+									</div>
+									
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="3" data-section="engine" name="C13">
+											&nbsp;<strong>C13</strong> - Aftermarket or Modified Wastegate Actuator, wastegate, or vacuum line(s) that serve to control the wastegate actuator function or increase peak boost +3
+										</label>
+									</div>
+									
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="7" data-section="engine" name="C14">
+											&nbsp;<strong>C14</strong> - Add aftermarket intercooler +7
+										</label>
+									</div>
+									
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="4" data-section="engine" name="C15">
+											&nbsp;<strong>C15</strong> - Non-BTM or modified intercooler +4 (Intercooler sprayers must meet BTM definition, otherwise not allowed)
+										</label>
+									</div>
+									
+									<div>
+										<select class="form-control dropdown-input" data-section="engine" name="C16">
+											<option value="0" selected><1.5%</option>
+											<option value="4">1.5% to <5.5%</option>
+											<option value="6">5.5% to <7%</option>
+											<option value="8">7% to <10%</option>
+											<option value="10">10% to <15%</option>
+											<option value="15">15% to <20%</option>
+											<option value="20">>20%</option>
+										</select>
+										<label for="C16"><strong>C16</strong> - Increased displacement by: <1.5% +0, 1.5% to <5.5% +4, 5.5% to <7% +6, 7% to <10% +8, 10% to <15% + 10, 15% to <20% +15, > 20% +20.</label>
+									</div>
+									
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="6" data-section="engine" name="C17">
+											&nbsp;<strong>C17</strong> - Modified or Non-BTM camshafts, rocker arms, pushrods, or cam timing gears (for one or more) +6
+										</label>
+									</div>
+									
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="6" data-section="engine" name="C18">
+											&nbsp;<strong>C18</strong> - Valve size change, modified, ported, and/or polished BTM heads (other than simple shaving of the head only) + 6
+										</label>
+									</div>
+									
+									<div>
+										<select class="form-control dropdown-input" data-section="engine" name="C19">
+											<option value="0" selected>0.50 or less</option>
+											<option value="3">>0.50</option>
+											<option value="6">>1.0</option>
+											<option value="10">>2.0</option>
+											<option value="15">>3.0</option>
+										</select>
+										<label for="C19"><strong>C19</strong> - Any modification that results in increased engine compression ratio (including head shaving or decking block to factory specs) 0.50 or less +0, >0.50 +3, >1.0 +6, >2.0 +10, >3.0 +15</label>
+									</div>
+									
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="4" data-section="engine" name="C20">
+											&nbsp;<strong>C20</strong> - De-stroked engine +4
+										</label>
+									</div>
+									
+									<div>
+										<select class="form-control dropdown-input" data-section="engine" name="C21">
+											<option value="0" selected>0 points</option>
+											<option value="7">7 points</option>
+											<option value="14">14 points</option>
+										</select>
+										<label for="C21"><strong>C21</strong> - Added dry sump oil system +7 (+14 if motor is lowered from OEM location)</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="5" data-section="engine" name="C22">
+											&nbsp;<strong>C22</strong> - Modification, porting, or replacement of the BTM exhaust manifold or header(s) (includes any/all other exhaust and catalytic converter modifications) +5
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="3" data-section="engine" name="C23">
+											&nbsp;<strong>C23</strong> - Any modification to the BTM exhaust piping and/or catalytic converter (includes muffler modification or replacement) +3
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="4" data-section="engine" name="C24">
+											&nbsp;<strong>C24</strong> - Non-BTM or modified resonator(s) or muffler(s) only (no exhaust piping modifications) +1
+										</label>
+									</div>
+									<br>
+									<div>
+										Total Engine Points: <strong id="subtotal-engine">0</strong>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel-group" id="accordion-drivetrain" role="tablist" aria-multiselectable="true">
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="heading-drivetrain">
+								<h4 class="panel-title">
+									<a role="button" data-toggle="collapse" data-parent="#accordion-drivetrain" href="#collapse-drivetrain" aria-expanded="true" aria-controls="collapse-drivetrain">
+									  Section D - DRIVETRAIN
+									</a>
+								</h4>
+							</div>
+							<div id="collapse-drivetrain" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-drivetrain">
+								<div class="panel-body">
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="7" data-section="drivetrain" name="D1">
+											&nbsp;<strong>D1</strong> - Non-BTM sequential (semi-automatic) or dog-ring transmission (non-synchromesh) - includes altered gear ratios +7 (note - automatic with torque converter exempt)
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="6" data-section="drivetrain" name="D2">
+											&nbsp;<strong>D2</strong> - Double Clutch Transmissions with altered gear ratios +6 (do not also assess D3 & D4)
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="3" data-section="drivetrain" name="D3">
+											&nbsp;<strong>D3</strong> - Modify number of forward gears in transmission or altered gear ratios +3
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="3" data-section="drivetrain" name="D4">
+											&nbsp;<strong>D4</strong> - Added paddle/electronic shift +3
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="3" data-section="drivetrain" name="D5">
+											&nbsp;<strong>D5</strong> - Added limited slip differential or welded/locked differential +3
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="1" data-section="drivetrain" name="D6">
+											&nbsp;<strong>D6</strong> - Changed or modified limited slip differential (or welded/locked BTM LSD) +1
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="3" data-section="drivetrain" name="D7">
+											&nbsp;<strong>D7</strong> - Added traction control +3 (no points if proven disabled during competition)
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="7" data-section="drivetrain" name="D8">
+											&nbsp;<strong>D8</strong> - Relocation of engine/transmission between 1 and 10 inches of the BTM location +7 (note: relocation of less than 1 inch is not assessed points.  Original engine location shall be based on the BTM rear face of the engine block and BTM crankshaft centerline)
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="3" data-section="drivetrain" name="D9">
+											&nbsp;<strong>D9</strong> - Modification/upgrade from a fixed to a floating rear axle +3
+										</label>
+									</div>
+									
+									<br>
+									<div>
+										Total Drivetrain Points: <strong id="subtotal-drivetrain">0</strong>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel-group" id="accordion-suspension" role="tablist" aria-multiselectable="true">
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="heading-suspension">
+								<h4 class="panel-title">
+									<a role="button" data-toggle="collapse" data-parent="#accordion-suspension" href="#collapse-suspension" aria-expanded="true" aria-controls="collapse-suspension">
+									  Section E - SUSPENSION
+									</a>
+								</h4>
+							</div>
+							<div id="collapse-suspension" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-suspension">
+								<div class="panel-body">
+									<div class="checkbox">
+							<label>
+								<input type="checkbox" class="checkbox-input" data-points="8" data-section="suspension" name="E1">
+								&nbsp;<strong>E1</strong> - Non-BTM shocks/struts/dampers with an external reservoir or more than two ranges of adjustment - must still take points for springs below in E5.  +8.  (example: compression (bump), low speed rebound and high speed rebound is 3 ranges of adjustment)(May have spherical tops and/or bottoms)
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" class="checkbox-input" data-points="5" data-section="suspension" name="E2">
+								&nbsp;<strong>E2</strong> - Non-BTM shocks/struts/dampers with a "piggy back" external reservoir (fixed reservoir w/o connecting hose) OR with shaft diameter 40mm or greater - must still take points for springs below in E5.  +5 (May have spherical tops and/or bottoms)
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" class="checkbox-input" data-points="3" data-section="suspension" name="E3">
+								&nbsp;<strong>E3</strong> - Non-BTM or modified/re-valved shocks/struts/dampers +3 (all others)(E5 springs not included)(May have spherical tops and/or bottoms)
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" class="checkbox-input" data-points="1" data-section="suspension" name="E4">
+								&nbsp;<strong>E4</strong> - Changing the mount orientation/design of the BTM shock and/or spring perch to invert the front shocks/struts (includes non-BTM inverted shocks/struts) +1
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" class="checkbox-input" data-points="2" data-section="suspension" name="E5">
+								&nbsp;<strong>E5</strong> - Non-BTM or modified coil springs, bump stops, leaf springs/spacers/brackets, or torsion bars +2
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" class="checkbox-input" data-points="2" data-section="suspension" name="E6">
+								&nbsp;<strong>E6</strong> - Conversion of torsion bar/leaf spring suspension to coil spring and strut/shock suspension +2
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" class="checkbox-input" data-points="2" data-section="suspension" name="E7">
+								&nbsp;<strong>E7</strong> - Add, replace, remove, or modify anti-roll bars (swaybars - front, rear, or both) or end links - may have spherical joints on the end links and/or relocation of the mounting points without additional assessment.  +2
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" class="checkbox-input" data-points="4" data-section="suspension" name="E8">
+								&nbsp;<strong>E8</strong> - Non-BTM driver/cockpit adjustable swaybar or other suspension settings +4
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" class="checkbox-input" data-points="4" data-section="suspension" name="E9">
+								&nbsp;<strong>E9</strong> - Replace, modify, or remove control arms (including toe arms/links)(other than plates, shims, or eccentric bolts/bushings for simple camber/caster adjustment only) or RWD/AWD rear trailing arms (may have spherical/metallic joint for the connection to the spindle/knuckle) +4
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" class="checkbox-input" data-points="1" data-section="suspension" name="E10">
+								&nbsp;<strong>E10</strong> - Non-BTM rear control arms on FWD vehicles (for stiffness & wheel alignment only, no change in suspension mount or pick-up points from stock) +1  (if both front and rear use E9)
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" class="checkbox-input" data-points="1" data-section="suspension" name="E11">
+								&nbsp;<strong>E11</strong> - Non-OEM rear trailing arms on FWD (for stiffness & wheel alignment only, no change in suspension mount or pick-up points from stock) +1
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" class="checkbox-input" data-points="6" data-section="suspension" name="E12">
+								&nbsp;<strong>E12</strong> - Using the alternate control arm mounting location on cars equipped BTM with multiple choices +6 (ex to increase track width)
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" class="checkbox-input" data-points="6" data-section="suspension" name="E13">
+								&nbsp;<strong>E13</strong> - Relocation of front suspension mounting points +6 (Includes modifications to spindles and knuckles that relocate control arm mounting points in space - such as "drop spindles")
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" class="checkbox-input" data-points="6" data-section="suspension" name="E14">
+								&nbsp;<strong>E14</strong> -  Relocation of rear suspension mounting points +6 (Includes modifications to spindles and knuckles that relocate control arm mounting points in space - such as "drop spindles")
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" class="checkbox-input" data-points="2" data-section="suspension" name="E15">
+								&nbsp;<strong>E15</strong> - Front steering tie rod bump steer modifications or shimming of the steering rack +2
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" class="checkbox-input" data-points="2" data-section="suspension" name="E16">
+								&nbsp;<strong>E16</strong> - Alteration of ball joints/dive angles +2
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" class="checkbox-input" data-points="4" data-section="suspension" name="E17">
+								&nbsp;<strong>E17</strong> - Add panhard rod or Watt’s link (regardless of whether or not the Watts link replaces a BTM panhard rod or the panhard rod replaces a BTM Watts link) (may have spherical joints without an additional points assessment) +4
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" class="checkbox-input" data-points="2" data-section="suspension" name="E18">
+								&nbsp;<strong>E18</strong> - Replace or modify a BTM panhard rod or Watt’s link (may have spherical joints without additional assessment) +2
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" class="checkbox-input" data-points="4" data-section="suspension" name="E19">
+								&nbsp;<strong>E19</strong> - Add torque arm +4
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" class="checkbox-input" data-points="2" data-section="suspension" name="E20">
+								&nbsp;<strong>E20</strong> - Replace or modify a BTM torque arm +2
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" class="checkbox-input" data-points="4" data-section="suspension" name="E21">
+								&nbsp;<strong>E21</strong> -  Add a 3rd link to the rear suspension that does not penetrate the floor +4
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" class="checkbox-input" data-points="3" data-section="suspension" name="E22">
+								&nbsp;<strong>E22</strong> - Metallic replacement suspension bushings (Heim joints/spherical joints) +3 (except for shock tops or bottoms assessed in E.1),E.2), or E.3) above, pillow ball camber plate joints, sway bar endlinks if taking modification E7, control arm spindle/knuckle joints if taking mod E9, and/or Panhard/Watts/3rd link parts if taking mod(s) E17/E18/E19/E20/E21)
+							</label>
+						</div>
+						
+						<br>
+						<div>
+							Total Suspension Points: <strong id="subtotal-suspension">0</strong>
+						</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel-group" id="accordion-chassis" role="tablist" aria-multiselectable="true">
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="heading-chassis">
+								<h4 class="panel-title">
+									<a role="button" data-toggle="collapse" data-parent="#accordion-chassis" href="#collapse-chassis" aria-expanded="true" aria-controls="collapse-chassis">
+									  Section F - BRAKES/CHASSIS
+									</a>
+								</h4>
+							</div>
+							<div id="collapse-chassis" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-chassis">
+								<div class="panel-body">
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="2" data-section="chassis" name="F1">
+											&nbsp;<strong>F1</strong> - Non-BTM, modified, or relocated brake calipers and/or brake caliper brackets and/or brake rotor diameter +2
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="1" data-section="chassis" name="F2">
+											&nbsp;<strong>F2</strong> - Add front lower stress/arm brace (two attachment points maximum) +1
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="1" data-section="chassis" name="F3">
+											&nbsp;<strong>F3</strong> - Add a third or more attachment point to front or rear strut tower bar (or replace existing/BTM 3 attachment point brace) +1 (Additional attachment points must not be tied to any other type of mounting point with anything other than sheetmetal)
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="3" data-section="chassis" name="F4">
+											&nbsp;<strong>F4</strong> - Add or modify other chassis stiffening devices or fabricated parts (such as lower stress/arm braces with > 2 attachment points, subframe connectors, subframe braces, subframe mounts, and/or non-rubber or non-poly subframe mounts/bushings, etc.) +3
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="6" data-section="chassis" name="F5">
+											&nbsp;<strong>F5</strong> - Increase in track width greater than 4 inches due to non-BTM axles, control arms, brake rotors/hats, wheel spacers, hubs, wheel offset, and/or camber adjustment.  +6  (measured from the inside of one tire to the outside of the opposite tire at ground level - averaging the measurements in front of and behind the contact patch to negate the effect of toe)
+										</label>
+									</div>
+									
+									<br>
+									<div>
+										Total Brake/Chassis Points: <strong id="subtotal-chassis">0</strong>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel-group" id="accordion-aerodynamics" role="tablist" aria-multiselectable="true">
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="heading-aerodynamics">
+								<h4 class="panel-title">
+									<a role="button" data-toggle="collapse" data-parent="#accordion-aerodynamics" href="#collapse-aerodynamics" aria-expanded="true" aria-controls="collapse-aerodynamics">
+									  Section G - AERODYNAMICS
+									</a>
+								</h4>
+							</div>
+							<div id="collapse-aerodynamics" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-aerodynamics">
+								<div class="panel-body">
+									<div>
+										<select class="form-control dropdown-input" data-section="aerodynamics" name="G1">
+											<option value="0" selected>None</option>
+											<option value="3">Basic Air Dam</option>
+											<option value="6">Additional Assessment</option>
+										</select>
+										<label for="G1"><strong>G1</strong> - Add, replace, or modify front fascia or air dam +3 (except as provided for in the applicable No-Points modification list).  The air dam must be vertical (5° tolerance) and must not protrude from the side of the vehicle or it will be assessed an additional +3 points (click both boxes to the right).  Additional points must be assessed below for any component of the added/replaced/modified fascia or air dam that performs the functions listed in G2 and/or G3 below</label>
+									</div>
+
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="3" data-section="aerodynamics" name="G2">
+											&nbsp;<strong>G2</strong> - Add, replace or modify a single front splitter +3  This part may extend horizontally past the side of the vehicle no greater than 5".  If any portion of this part that protrudes from the side of the vehicle is not parallel to the ground then additional points must be assessed for canards in G3 below.  No material, filler or part may extend beyond the vertical reach of the BTM front fascia without taking points for fascia modification points above in G1.
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="2" data-section="aerodynamics" name="G3">
+											&nbsp;<strong>G3</strong> - Add or modify canards/winglets (includes portions of an added/modified/replaced fascia that provide a downward force other than that listed in G2 above) +2
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="4" data-section="aerodynamics" name="G4">
+											&nbsp;<strong>G4</strong> - Add, replace, or modify rear wing and/or spoiler +4  (a rear wing or spoiler may not exceed a height of 8" above the roofline (or BTM windshield height for convertibles), or a width greater than the width of the car body.  (note additional points must be assessed for end plates greater than 12" in height G8 below))
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="5" data-section="aerodynamics" name="G5">
+											&nbsp;<strong>G5</strong> - Add or fabricate flat bottom/belly tray (rearward of the centerline of the front axle) +5
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="2" data-section="aerodynamics" name="G6">
+											&nbsp;<strong>G6</strong> - Add rear diffuser +2 (note: additional points must be assessed for any vertical panels in the diffuser that exceed 5" in height per G8 below) (If taking +2 here for G.6) do not also take assessment for G.7) below)
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="1" data-section="aerodynamics" name="G7">
+											&nbsp;<strong>G7</strong> - Replace or modify BTM rear diffuser, rear bumper cover, or rear “fascia” +1 (note: additional points must be assessed for any vertical panels in the diffuser that exceed 5" in height per G8 below)
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="2" data-section="aerodynamics" name="G8">
+											&nbsp;<strong>G8</strong> - Add rear vertical panels in any location (note: see G4, G7 and G10) +2
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="2" data-section="aerodynamics" name="G9">
+											&nbsp;<strong>G9</strong> - Add or modify side skirts +2 (side skirts must be vertical only or an OEM option only, and cannot connect to any other aero component)
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="1" data-section="aerodynamics" name="G10">
+											&nbsp;<strong>G10</strong> - Add vortex generator to roof, rear window, or rear deck lid +1 (note: additional points must be assessed for any vertical panel of the vortex generator that is greater than 5" in height per G8 above)
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="7" data-section="aerodynamics" name="G11">
+											&nbsp;<strong>G11</strong> - Removal of the front windshield/windshield frame +7 (raking is not permitted)
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="2" data-section="aerodynamics" name="G12">
+											&nbsp;<strong>G12</strong> - Front side window frame air dams/diverters (driver and/or passenger side) +2
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="5" data-section="aerodynamics" name="G13">
+											&nbsp;<strong>G13</strong> - Add a non-OEM hardtop to a convertible that is not the identical shape and size of either the BTM or OEM option hardtop for that car model.  +5  (note: the top must not extend rearward of the front edge of the rear deck lid - "fastback" tops and tonneau covers are not permitted)
+										</label>
+									</div>
+									
+									<br>
+									<div>
+										Total Aerodynamics Points: <strong id="subtotal-aerodynamics">0</strong>
+									</div>
+									<br>
+									<div>
+										<small>Note:  Active aerodynamic modifications (including but not limited to computerized, cockpit adjustable, self adjusting, etc.) are not permitted</small>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel-group" id="accordion-rollcage" role="tablist" aria-multiselectable="true">
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="heading-rollcage">
+								<h4 class="panel-title">
+									<a role="button" data-toggle="collapse" data-parent="#accordion-rollcage" href="#collapse-rollcage" aria-expanded="true" aria-controls="collapse-rollcage">
+									  Section H - ROLL CAGES
+									</a>
+								</h4>
+							</div>
+							<div id="collapse-rollcage" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-rollcage">
+								<div class="panel-body">
+									<div>
+										6-point (two main hoop, two rear brace, two forward hoop) roll cage designs constructed per the NASA CCR figure below may be utilized without a TT modification point assessment.  Two additional attachment points for either two footwell bars or two bars to the front firewall (one on each side for the purpose of additional tire intrusion prevention and not attached to frame, dash bar, or cowling) may be added without a TT modification assessment.  Additional bars and/or gusseting within the structure of the cage are permitted without a TT modification point assessment.  Gusseting of the 6 CCR attachment points listed above is permitted without a TT modification point assessment provided that the gussets are attached to the tube no further than 6" from the end of the tube and to the chassis no further than 6" from the end of the tube where it terminates at the plate.  Up to three additional attachment points solely for the purpose of bars connecting "NASCAR" style driver's side door bars to the rocker panel are permitted without a TT modification point assessment.  Additional attachment points within the driver's compartment that exceed these allowances are also permitted, but will be assessed points as follows:
+									</div>
+
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="2" data-section="rollcage" name="H1">
+											&nbsp;<strong>H1</strong> - One or more bars that penetrate the front bulkhead/firewall +2
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="checkbox-input" data-points="2" data-section="rollcage" name="H2">
+											&nbsp;<strong>H2</strong> - Any other attachment point to the chassis not specified as points-free in ruleset +2
+										</label>
+									</div>
+
+									<br>
+									<div>
+										Total Roll Cage Points: <strong id="subtotal-rollcage">0</strong>
+									</div>
+									<br>
+									<div>
+										<small>Note - It is considered a safety hazard to cut through bars without removing them</small>
+									</div>
+									<br>
+									<div>
+										Figure from NASA CCRs:
+										<br>
+										<img src="typical-rollcage.png">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<!--<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+		<script src="app.js"></script>
+	</body>
+</html>
+
