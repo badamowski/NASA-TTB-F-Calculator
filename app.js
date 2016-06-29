@@ -12,8 +12,8 @@ var total = 0,
 		TTH: 175,
 	},
 	classOrder = ["TTH", "TTF", "TTE", "TTD", "TTC", "TTB", "TTU123"],
-	currentClass = "TTD",
-	savedBaseClass = "TTD";
+	savedBaseClass = "TTD",
+	currentClass;
 
 function init(){
 	$.each(sections, function(index, section){
@@ -22,9 +22,8 @@ function init(){
 			rules: {}
 		};
 	});
+	$("#baseClassSelect").val(savedBaseClass).trigger("change");
 };
-
-init();
 
 $("#baseClassSelect").on("change", function(baseClassSelect){
 	var $baseClassSelect = $(baseClassSelect.target),
@@ -119,39 +118,16 @@ function determineWeightPoints(weightDifference){
 };
 
 function calculateClass(){
-	if(total < 20 && total > -20){
-		updateClass(savedBaseClass, "0 thru 19 points - stay in base class");
-	}else if(total < 40 && total >= 20){
-		updateClass(incrementClass(savedBaseClass, 1), "20 thru 39 points - Up ONE Class");
-	}else if(total < 60 && total >= 40){
-		updateClass(incrementClass(savedBaseClass, 2), "40 thru 59 points - Up TWO Classes");
-	}else if(total < 80 && total >= 60){
-		updateClass(incrementClass(savedBaseClass, 3), "60 thru 79 points - Up THREE Classes");
-	}else if(total < 100 && total >= 80){
-		updateClass(incrementClass(savedBaseClass, 4), "80 thru 99 points - Up FOUR Classes");
-	}else if(total < 120 && total >= 100){
-		updateClass(incrementClass(savedBaseClass, 5), "100 thru 119 points - Up FIVE Classes");
-	}else if(total < 140 && total >= 120){
-		updateClass(incrementClass(savedBaseClass, 6), "120 thru 139 points - Up SIX Classes");
-	}else if(total < 160 && total >= 140){
-		updateClass(incrementClass(savedBaseClass, 7), "140 thru 159 points - Up SEVEN Classes");
-	}else if(total >= 160){
-		updateClass(incrementClass(savedBaseClass, 8), "160 thru 179 points - Up EIGHT Classes");
-	}else if(total <= -20 && total > -40){
-		updateClass(incrementClass(savedBaseClass, -1), "drop 1 class");
-	}else if(total <= -40 && total > -60){
-		updateClass(incrementClass(savedBaseClass, -2), "drop 2 classes");
-	}else if(total <= -60 && total > -80){
-		updateClass(incrementClass(savedBaseClass, -3), "drop 3 classes");
-	}else if(total <= -80 && total > -100){
-		updateClass(incrementClass(savedBaseClass, -4), "drop 4 classes");
-	}else if(total <= -100 && total > -120){
-		updateClass(incrementClass(savedBaseClass, -5), "drop 5 classes");
-	}else if(total <= -120 && total > -140){
-		updateClass(incrementClass(savedBaseClass, -6), "drop 6 classes");
-	}else if(total <= -140){
-		updateClass(incrementClass(savedBaseClass, -7), "drop 7 classes");
+	classIncrement.sort(function(first, second){
+		return second.max - first.max;
+	});
+
+	for(var i = 0; i < classIncrement.length; i++){
+		if(total >= classIncrement[i].max){
+			return updateClass(incrementClass(savedBaseClass, classIncrement[i].classIncrement), classIncrement[i].message);
+		}
 	}
+	return 0;
 };
 
 function updateClass(newClass, message){
@@ -197,55 +173,135 @@ function updateSectionPoints(name, points, section){
 	$("#subtotal-" + section).html(subtotals[section].subtotal);
 };
 
-function determineTirePoints(difference){
-	if(difference > -10 && difference < 10){
-		return 0;
-	}
+function determineTirePoints(tireSizeDifference){
+	tireSize.sort(function(first, second){
+		return second.max - first.max;
+	});
 
-	if(difference >= 110){
-		return 31;
+	for(var i = 0; i < tireSize.length; i++){
+		if(tireSizeDifference >= tireSize[i].max){
+			return tireSize[i].points;
+		}
 	}
-	if(difference >= 100){
-		return 28;
-	}
-	if(difference >= 90){
-		return 25;
-	}
-	if(difference >= 80){
-		return 22;
-	}
-	if(difference >= 70){
-		return 19;
-	}
-	if(difference >= 60){
-		return 16;
-	}
-	if(difference >= 50){
-		return 13;
-	}
-	if(difference >= 40){
-		return 10;
-	}
-	if(difference >= 30){
-		return 7;
-	}
-	if(difference >= 20){
-		return 4;
-	}
-	if(difference >= 10){
-		return 1;
-	}
-
-	if(difference <= -30){
-		return -7;
-	}
-	if(difference <= 20){
-		return -4;
-	}
-	if(difference <= 10){
-		return -1;
-	}
+	return 0;
 };
+
+var classIncrement = [
+	{
+		max: 160,
+		classIncrement: 8,
+		message: "160 thru 179 points - Up EIGHT Classes"
+	}, {
+		max: 140,
+		classIncrement: 7,
+		message: "140 thru 159 points - Up SEVEN Classes"
+	}, {
+		max: 120,
+		classIncrement: 6,
+		message: "120 thru 139 points - Up SIX Classes"
+	}, {
+		max: 100,
+		classIncrement: 5,
+		message: "100 thru 119 points - Up FIVE Classes"
+	}, {
+		max: 80,
+		classIncrement: 4,
+		message: "80 thru 99 points - Up FOUR Classes"
+	}, {
+		max: 60,
+		classIncrement: 3,
+		message: "60 thru 79 points - Up THREE Classes"
+	}, {
+		max: 40,
+		classIncrement: 2,
+		message: "40 thru 59 points - Up TWO Classes"
+	}, {
+		max: 20,
+		classIncrement: 1,
+		message: "20 thru 39 points - Up ONE Class"
+	}, {
+		max: -19,
+		classIncrement: 0,
+		message: "0 thru 19 points - stay in base class"
+	}, {
+		max: -39,
+		classIncrement: -1,
+		message: "drop 1 class"
+	}, {
+		max: -59,
+		classIncrement: -2,
+		message: "drop 2 classes"
+	}, {
+		max: -79,
+		classIncrement: -3,
+		message: "drop 3 classes"
+	}, {
+		max: -99,
+		classIncrement: -4,
+		message: "drop 4 classes"
+	}, {
+		max: -119,
+		classIncrement: -5,
+		message: "drop 5 classes"
+	}, {
+		max: -139,
+		classIncrement: -6,
+		message: "drop 6 classes"
+	}, {
+		max: -999999999,
+		classIncrement: -1,
+		message: "drop 7 classes"
+	}		
+];
+
+var tireSize = [
+	{
+		max: 110,
+		points: 31
+	}, {
+		max: 100,
+		points: 28
+	}, {
+		max: 90,
+		points: 25
+	}, {
+		max: 80,
+		points: 22
+	}, {
+		max: 70,
+		points: 19
+	}, {
+		max: 60,
+		points: 16
+	}, {
+		max: 50,
+		points: 13
+	}, {
+		max: 40,
+		points: 10
+	}, {
+		max: 30,
+		points: 7
+	}, {
+		max: 20,
+		points: 4
+	}, {
+		max: 10,
+		points: 1
+	}, {
+		max: -9,
+		points: 0
+	}, {
+		max: -19,
+		points: -1
+	}, {
+		max: -29,
+		points: -4
+	}, {
+		max: -999999999,
+		points: -7
+	}
+];
 
 var weightReduction = [
 	{
@@ -880,3 +936,5 @@ var weightReduction = [
 		points:	209
 	}
 ];
+
+init();
