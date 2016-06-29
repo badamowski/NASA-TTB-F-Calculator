@@ -1,0 +1,53 @@
+{
+	"sections": [
+		{
+			"section": "A",
+			"description": "TIRES",
+			"rules": [
+				{
+					"rule": "A1",
+					"description": "The following DOT approved R-Compound Tires: BFG R1S, Goodyear Eagle RS AC, Hoosier A7, Hankook Z217 (C90 & C91 Compounds), Hoosier Wet DOT (if used in dry conditions)",
+					"points": 22
+				}, {
+					"rule": "A2",
+					"description": "The following DOT approved R-Compound Tires: Hoosier A6",
+					"points": 17
+				}, {
+					"rule": "A3",
+					"description": "The following DOT approved R-Compound Tires: BFG R1, Goodyear RS, Hankook Z214 (C71, C70, C51, C50), Hoosier R7, Kumho V710",
+					"points": 10
+				}, {
+					"rule": "A4",
+					"description": "The following DOT approved R-compound tires: Hoosier SM7",
+					"points": 9
+				}, {
+					"rule": "A5",
+					"description": "The following DOT approved R-Compound Tires: Hoosier R6, Hoosier SM6 (note: CTSC EC-Dry Tires (225, 245, 275) OK)",
+					"points": 8
+				}, {
+					"rule": "A6",
+					"description": "The following DOT approved R-Compound Tires: Toyo Proxes RR, Hankook TD, Pirelli Trofeo R",
+					"points": 7
+				}, {
+					"rule": "A7",
+					"description": "The Following DOT approved tires and those R-compound tires with a UTQG treadwear rating over 40:  BFG Rival S, Bridgestone REO71-R, Maxxis RC-1 (ex. Kumho V700, Kumho V720, Michelin Pilot Sport Cup & MPS Cup 2, Nitto NT01, Pirelli PZero Corsa, Toyo R888, Toyo RA-1, Yokohama A048, etc.)",
+					"points": 6
+				}, {
+					"rule": "A8",
+					"description": "DOT-Approved (non-R-compound) tires with a UTQG treadwear rating of 120-200 (ex. BFG g-Force Rival, Toyo R1R, Dunlop Direzza Sport ZII Star Spec, Bridgestone Potenza RE070, Kumho Ecsta XS, Yokohama Advan A046 & Neova AD08, Hankook R-S3)",
+					"points": 2
+				}, {
+					"rule": "A9",
+					"description": "Non-DOT slicks (note - certain Non-DOT tires such as Continental Tire Series Tires are +10 - see ruleset for list)",
+					"points": 30
+				}, {
+					"rule": "A10",
+					"description": "tire size credit or penalty"
+				}
+			]
+		}, {
+			"section": "B",
+			"description": "WEIGHT RECUTION"
+		}
+	]
+}
