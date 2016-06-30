@@ -1,17 +1,3 @@
-body {
-  background: #F1F1F1;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-.points-text {
-  color: white !important;
-}
-
-.panel-heading {
-  background: #6D6D6D !important;
-  color: white !important;
-}
-
 .width-100 {
   width: 100%;
 }
@@ -19,29 +5,6 @@ body {
 .class-point-panel {
   color: white !important;
   background: #ac0b1d !important;
-}
-
-.panel-collapse {
-  background: #6D6D6D; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(#6D6D6D, white); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(#6D6D6D, white); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(#6D6D6D, white); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(#6D6D6D, white); /* Standard syntax */
-}
-
-.tt-calc-form {
-  border-left-color: #ac0b1d;
-  position: relative;
-  padding: 15px 15px 0px 15px;
-  margin: 0 -15px 15px;
-  border-style: solid;
-  margin-right: 0;
-  margin-left: 0;
-  background-color: #F1F1F1;
-  border-color: #ddd;
-  border-width: 1px;
-  border-radius: 4px 4px 0 0;
-  box-shadow: none;
 }
 
 .affix {
