@@ -99,6 +99,7 @@ $(".weight-input").on("change", function(){
 
 	$("#weightDifference").html(difference);
 	$("#weightPoints").html(weightPoints);
+	$("#subtotal-weight").html(weightPoints);
 
 	updateTotalPoints("weight", weightPoints);
 	calculateClass();
@@ -124,17 +125,23 @@ function calculateClass(){
 
 	for(var i = 0; i < classIncrement.length; i++){
 		if(total >= classIncrement[i].max){
-			return updateClass(incrementClass(savedBaseClass, classIncrement[i].classIncrement), classIncrement[i].message);
+			return updateClass(incrementClass(savedBaseClass, classIncrement[i].classIncrement), classIncrement[i].nextClass);
 		}
 	}
 	return 0;
 };
 
-function updateClass(newClass, message){
+function updateClass(newClass, nextClass){
 	if(newClass != currentClass){
 		currentClass = newClass;
 		$("#calculatedClass").html(newClass);
-		$("#pointsMessage").html(message);
+		if(nextClass){
+			$("#pointsSlash").show();
+			$("#pointsUntilNextClass").html(nextClass);
+		}else{
+			$("#pointsSlash").hide();
+			$("#pointsUntilNextClass").html("");
+		}
 	}
 };
 
@@ -194,35 +201,43 @@ var classIncrement = [
 	}, {
 		max: 140,
 		classIncrement: 7,
-		message: "140 thru 159 points - Up SEVEN Classes"
+		message: "140 thru 159 points - Up SEVEN Classes",
+		nextClass: 159
 	}, {
 		max: 120,
 		classIncrement: 6,
-		message: "120 thru 139 points - Up SIX Classes"
+		message: "120 thru 139 points - Up SIX Classes",
+		nextClass: 139
 	}, {
 		max: 100,
 		classIncrement: 5,
-		message: "100 thru 119 points - Up FIVE Classes"
+		message: "100 thru 119 points - Up FIVE Classes",
+		nextClass: 119
 	}, {
 		max: 80,
 		classIncrement: 4,
-		message: "80 thru 99 points - Up FOUR Classes"
+		message: "80 thru 99 points - Up FOUR Classes",
+		nextClass: 99
 	}, {
 		max: 60,
 		classIncrement: 3,
-		message: "60 thru 79 points - Up THREE Classes"
+		message: "60 thru 79 points - Up THREE Classes",
+		nextClass: 79
 	}, {
 		max: 40,
 		classIncrement: 2,
-		message: "40 thru 59 points - Up TWO Classes"
+		message: "40 thru 59 points - Up TWO Classes",
+		nextClass: 59
 	}, {
 		max: 20,
 		classIncrement: 1,
-		message: "20 thru 39 points - Up ONE Class"
+		message: "20 thru 39 points - Up ONE Class",
+		nextClass: 39
 	}, {
 		max: -19,
 		classIncrement: 0,
-		message: "0 thru 19 points - stay in base class"
+		message: "0 thru 19 points - stay in base class",
+		nextClass: 19
 	}, {
 		max: -39,
 		classIncrement: -1,
