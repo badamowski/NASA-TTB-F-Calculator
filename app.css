@@ -12,6 +12,10 @@ body {
   color: white !important;
 }
 
+.width-100 {
+  width: 100%;
+}
+
 .class-point-panel {
   color: white !important;
   background: #ac0b1d !important;
