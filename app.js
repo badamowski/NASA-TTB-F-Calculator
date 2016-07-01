@@ -107,10 +107,18 @@ $(".nav-item").click(function(navItem){
 	var $navItem = $(navItem.target),
 		section = $navItem.data("section");
 
-	$(".section-form").removeClass("show-section-form");
-	$("#form-"+section).addClass("show-section-form");
-	$(".nav-item").removeClass("btn-danger");
-	$navItem.addClass("btn-danger");
+	if(section == "all"){
+		$(".section-form").addClass("show-section-form");
+		$(".nav-item").removeClass("btn-danger");
+		$navItem.addClass("btn-danger");
+		$(".next-button").hide();
+	}else{
+		$(".next-button").show();
+		$(".section-form").removeClass("show-section-form");
+		$("#form-"+section).addClass("show-section-form");
+		$(".nav-item").removeClass("btn-danger");
+		$navItem.addClass("btn-danger");
+	}
 });
 
 $(".next-button").click(function(navItem){
