@@ -2,18 +2,63 @@
   width: 100%;
 }
 
+.margin-0 {
+  margin: 0px;
+}
+
+.help-block {
+  margin-bottom: 0px;
+}
+
 .class-point-panel {
   color: white !important;
   background: #ac0b1d !important;
 }
 
-.affix {
-  top: 5px;
-  width: 100%;
-  z-index: 100;
-  background: transparent;
+.points-text {
+  color: white;
 }
 
-.affix + .container {
-  background: transparent;
+.page-title {
+  font-size: 4em;
+}
+
+a:focus, a:hover {
+  color: #ac0b1d !important;
+}
+
+.radio input[type=radio]:checked~.check, label.radio-inline input[type=radio]:checked~.check {
+  background-color: #ac0b1d !important;
+}
+
+.radio input[type=radio]:checked~.circle, label.radio-inline input[type=radio]:checked~.circle {
+  border-color: #ac0b1d !important;
+}
+
+.slider .noUi-handle, .slider.slider-default .noUi-handle {
+  background-color: #ac0b1d !important;
+  border-color: #ac0b1d !important;
+}
+
+.checkbox input[type=checkbox]:checked+.checkbox-material .check, label.checkbox-inline input[type=checkbox]:checked+.checkbox-material .check {
+  color: #ac0b1d !important;
+  border-color: #ac0b1d !important;
+}
+
+.checkbox input[type=checkbox]:checked+.checkbox-material .check:before, label.checkbox-inline input[type=checkbox]:checked+.checkbox-material .check:before {
+  color: #ac0b1d !important;
+}
+
+.alert.alert-danger {
+  background-color: #F8102A;
+}
+
+.btn-group-raised .btn.btn-danger, .btn-group-raised .input-group-btn .btn.btn-danger, .btn.btn-fab.btn-danger, .btn.btn-raised.btn-danger, .input-group-btn .btn.btn-fab.btn-danger, .input-group-btn .btn.btn-raised.btn-danger {
+  background-color: #ac0b1d;
+  color: white;
+}
+
+.btn-group-raised .btn:not(.btn-link).active.btn-danger, .btn-group-raised .btn:not(.btn-link):active.btn-danger, .btn-group-raised .btn:not(.btn-link):focus.btn-danger, .btn-group-raised .btn:not(.btn-link):hover.btn-danger, .btn-group-raised .input-group-btn .btn:not(.btn-link).active.btn-danger, .btn-group-raised .input-group-btn .btn:not(.btn-link):active.btn-danger, .btn-group-raised .input-group-btn .btn:not(.btn-link):focus.btn-danger, .btn-group-raised .input-group-btn .btn:not(.btn-link):hover.btn-danger, .btn.btn-raised:not(.btn-link).active.btn-danger, .btn.btn-raised:not(.btn-link):active.btn-danger, .btn.btn-raised:not(.btn-link):focus.btn-danger, .btn.btn-raised:not(.btn-link):hover.btn-danger, .input-group-btn .btn.btn-raised:not(.btn-link).active.btn-danger, .input-group-btn .btn.btn-raised:not(.btn-link):active.btn-danger, .input-group-btn .btn.btn-raised:not(.btn-link):focus.btn-danger, .input-group-btn .btn.btn-raised:not(.btn-link):hover.btn-danger {
+  background-color: #ac0b1d;
+  color: white !important;
 }

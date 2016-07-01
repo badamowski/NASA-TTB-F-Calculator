@@ -22,6 +22,9 @@ function init(){
 			rules: {}
 		};
 	});
+
+	buildTireSizeSlider();
+	buildWeightSliders();
 	$("#baseClassSelect").val(savedBaseClass).trigger("change");
 };
 
@@ -31,9 +34,18 @@ $("#baseClassSelect").on("change", function(baseClassSelect){
 		baseClassTireSize = baseClassTireSizes[baseClass];
 
 	savedBaseClass = baseClass;
+	$("#base-tire-size").html(baseClassTireSize);
+	$("#tire-slider").get(0).noUiSlider.set(baseClassTireSize);
+});
 
-	$("#actualTireSize").val(baseClassTireSize);
-	$("#baseClassTireSize").val(baseClassTireSize).trigger("change");
+$(".radio-input").on("change", function(radio){
+	var $radio = $(radio.target),
+		points = parseInt($radio.val()),
+		name = $radio.attr("name")
+		section = $radio.data("section");
+
+	updateTotalPoints(name, points);
+	updateSectionPoints(name, points, section);
 	calculateClass();
 });
 
@@ -91,9 +103,91 @@ $(".tire-size-input").on("change", function(){
 	calculateClass();
 });
 
-$(".weight-input").on("change", function(){
-	var competitionWeight = parseInt($("#competitionWeight").val()),
-		baseWeight = parseInt($("#baseWeight").val()),
+$(".nav-item").click(function(navItem){
+	var $navItem = $(navItem.target),
+		section = $navItem.data("section");
+
+	$(".section-form").hide();
+	$("#form-"+section).show();
+	$(".nav-item").removeClass("btn-danger");
+	$navItem.addClass("btn-danger");
+});
+
+$(".next-button").click(function(navItem){
+	var $navItem = $(navItem.target),
+		section = $navItem.data("section");
+
+	$(".section-form").hide();
+	$("#form-"+section).show();
+	$(".nav-item").removeClass("btn-danger");
+	$('.nav-item[data-section="' + section + '"]').addClass("btn-danger");
+	$('html, body').animate({
+        scrollTop: $(".class-point-panel").offset().top
+    }, 500);
+	$(".class-point-panel").scrollTop(0);
+});
+
+function buildTireSizeSlider(){
+	noUiSlider.create($("#tire-slider").get(0), {
+		start: baseClassTireSizes[savedBaseClass],
+		step: 5,
+		range: {
+			'min': 145,
+			'max': 375
+		}
+	});
+
+	$("#tire-slider").get(0).noUiSlider.on('update', function( values, handle ) {
+		var value = parseInt(values[handle]),
+			baseClassTireSize = baseClassTireSizes[savedBaseClass],
+			difference = value - baseClassTireSize,
+			tireSizePoints = determineTirePoints(difference);
+
+		$("#tireSizeDifference").html(difference);
+		$("#tireSizePoints").html(tireSizePoints);
+
+		updateTotalPoints("tireSize", tireSizePoints);
+		updateSectionPoints("tireSize", tireSizePoints, "tires");
+		calculateClass();;
+		$("#tire-size-value").html(value);
+	});
+};
+
+function buildWeightSliders(){
+	noUiSlider.create($("#base-weight-slider").get(0), {
+		start: 3000,
+		step: 1,
+		range: {
+			'min': 500,
+			'max': 10000
+		}
+	});
+
+	noUiSlider.create($("#competition-weight-slider").get(0), {
+		start: 3000,
+		step: 1,
+		range: {
+			'min': 500,
+			'max': 10000
+		}
+	});
+
+	$("#base-weight-slider").get(0).noUiSlider.on('update', function( values, handle ) {
+		var value = parseInt(values[handle]);
+		$("#base-weight-value").html(value);
+		calculateWeightPoints();
+	});
+
+	$("#competition-weight-slider").get(0).noUiSlider.on('update', function( values, handle ) {
+		var value = parseInt(values[handle]);
+		$("#competition-weight-value").html(value);
+		calculateWeightPoints();
+	});
+};
+
+function calculateWeightPoints(){
+	var competitionWeight = $("#competition-weight-slider").get(0).noUiSlider.get(),
+		baseWeight = $("#base-weight-slider").get(0).noUiSlider.get(),
 		difference = baseWeight - competitionWeight,
 		weightPoints = determineWeightPoints(difference);
 
@@ -103,7 +197,7 @@ $(".weight-input").on("change", function(){
 
 	updateTotalPoints("weight", weightPoints);
 	calculateClass();
-});
+};
 
 function determineWeightPoints(weightDifference){
 	weightReduction.sort(function(first, second){
