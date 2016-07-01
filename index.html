@@ -39,7 +39,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-sm-2 hidden-sm hidden-xs">
+				<div class="col-sm-2 hidden-sm hidden-xs hidden-print">
 					<div class="margin-0 btn-group-vertical">
 						<a href="javascript:void(0)" class="nav-item btn btn-raised btn-danger" data-section="base">Base Class</a></li>
 						<a href="javascript:void(0)" class="nav-item btn btn-raised" data-section="tires">Tires</a></li>
@@ -53,7 +53,7 @@
 					</div>
 				</div>
 				<div class="col-sm-10">
-					<div class="row section-form" id="form-base">
+					<div class="row show-section-form section-form" id="form-base">
 						<div class="col-md-12">
 							<div class="well bs-component">
 								<form>
@@ -85,7 +85,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="row section-form" id="form-tires" hidden>
+					<div class="row section-form" id="form-tires">
 						<div class="col-md-12">
 							<div class="well bs-component">
 								<form>
@@ -144,7 +144,7 @@
 											<label>
 												<input type="radio" class="radio-input" name="radio-tire" value="2" data-section="tires"><span class="circle"></span><span class="check"></span>
 												<strong>A8</strong> - DOT-Approved (non-R-compound) tires with a UTQG treadwear rating of 120-200 +2
-												<p class="help-block">Ex. BFG g-Force Rival, Toyo R1R, Dunlop Direzza Sport ZII Star Spec, Bridgestone Potenza RE070, Kumho Ecsta XS, Yokohama Advan A046 & Neova AD08, Hankook R-S3)</p>
+												<p class="help-block">Ex. BFG g-Force Rival, Toyo R1R, Dunlop Direzza Sport ZII Star Spec, Bridgestone Potenza RE070, Kumho Ecsta XS, Yokohama Advan A046 & Neova AD08, Hankook R-S3</p>
 											</label>
 										</div>
 										<div class="radio">
@@ -157,7 +157,8 @@
 										<div class="radio">
 											<label>
 												<input type="radio" class="radio-input" name="radio-tire" value="0" data-section="tires"><span class="circle"></span><span class="check"></span>
-												Other Tires
+												Other
+												<p class="help-block">DOT-Approved (non-R-compound) tires with a UTQG treadwear rating of over 200</p>
 											</label>
 										</div>
 										<br>
@@ -180,7 +181,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="row section-form" id="form-weight" hidden>
+					<div class="row section-form" id="form-weight">
 						<div class="col-md-12">
 							<div class="well bs-component">
 								<form>
@@ -204,7 +205,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="row section-form" id="form-engine" hidden>
+					<div class="row section-form" id="form-engine">
 						<div class="col-md-12">
 							<div class="well bs-component">
 								<form>
@@ -402,7 +403,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="row section-form" id="form-drivetrain" hidden>
+					<div class="row section-form" id="form-drivetrain">
 						<div class="col-md-12">
 							<div class="well bs-component">
 								<form>
@@ -469,7 +470,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="row section-form" id="form-suspension" hidden>
+					<div class="row section-form" id="form-suspension">
 						<div class="col-md-12">
 							<div class="well bs-component">
 								<form>
@@ -614,7 +615,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="row section-form" id="form-chassis" hidden>
+					<div class="row section-form" id="form-chassis">
 						<div class="col-md-12">
 							<div class="well bs-component">
 								<form>
@@ -657,7 +658,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="row section-form" id="form-aerodynamics" hidden>
+					<div class="row section-form" id="form-aerodynamics">
 						<div class="col-md-12">
 							<div class="well bs-component">
 								<form>
@@ -757,7 +758,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="row section-form" id="form-rollcage" hidden>
+					<div class="row section-form" id="form-rollcage">
 						<div class="col-md-12">
 							<div class="well bs-component">
 								<form>
@@ -784,7 +785,7 @@
 											<small>Note - It is considered a safety hazard to cut through bars without removing them</small>
 										</div>
 										<br>
-										<div>
+										<div class="hidden-print">
 											Figure from NASA CCRs:
 											<br>
 											<img class="width-100" src="typical-rollcage.png">

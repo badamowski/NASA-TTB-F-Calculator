@@ -2,6 +2,14 @@
   width: 100%;
 }
 
+.show-section-form {
+  display: block !important;
+}
+
+.section-form {
+  display: none;
+}
+
 .margin-0 {
   margin: 0px;
 }
@@ -61,4 +69,14 @@ a:focus, a:hover {
 .btn-group-raised .btn:not(.btn-link).active.btn-danger, .btn-group-raised .btn:not(.btn-link):active.btn-danger, .btn-group-raised .btn:not(.btn-link):focus.btn-danger, .btn-group-raised .btn:not(.btn-link):hover.btn-danger, .btn-group-raised .input-group-btn .btn:not(.btn-link).active.btn-danger, .btn-group-raised .input-group-btn .btn:not(.btn-link):active.btn-danger, .btn-group-raised .input-group-btn .btn:not(.btn-link):focus.btn-danger, .btn-group-raised .input-group-btn .btn:not(.btn-link):hover.btn-danger, .btn.btn-raised:not(.btn-link).active.btn-danger, .btn.btn-raised:not(.btn-link):active.btn-danger, .btn.btn-raised:not(.btn-link):focus.btn-danger, .btn.btn-raised:not(.btn-link):hover.btn-danger, .input-group-btn .btn.btn-raised:not(.btn-link).active.btn-danger, .input-group-btn .btn.btn-raised:not(.btn-link):active.btn-danger, .input-group-btn .btn.btn-raised:not(.btn-link):focus.btn-danger, .input-group-btn .btn.btn-raised:not(.btn-link):hover.btn-danger {
   background-color: #ac0b1d;
   color: white !important;
+}
+
+@media print {
+  .section-form {
+    display: block;
+  }
+
+  .next-button, .slider {
+    display: none;
+  }
 }

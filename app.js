@@ -107,8 +107,8 @@ $(".nav-item").click(function(navItem){
 	var $navItem = $(navItem.target),
 		section = $navItem.data("section");
 
-	$(".section-form").hide();
-	$("#form-"+section).show();
+	$(".section-form").removeClass("show-section-form");
+	$("#form-"+section).addClass("show-section-form");
 	$(".nav-item").removeClass("btn-danger");
 	$navItem.addClass("btn-danger");
 });
@@ -117,8 +117,8 @@ $(".next-button").click(function(navItem){
 	var $navItem = $(navItem.target),
 		section = $navItem.data("section");
 
-	$(".section-form").hide();
-	$("#form-"+section).show();
+	$(".section-form").removeClass("show-section-form");
+	$("#form-"+section).addClass("show-section-form");
 	$(".nav-item").removeClass("btn-danger");
 	$('.nav-item[data-section="' + section + '"]').addClass("btn-danger");
 	$('html, body').animate({
