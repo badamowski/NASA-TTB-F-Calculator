@@ -226,11 +226,11 @@
 										</div>
 										
 										<div class="form-group label-static">
-											<label class="control-label" for="C3"><strong>C3</strong> - Aftermarket computer system (any non-BTM “stand-alone” or “piggyback”): +3 naturally aspirated, +10 forced induction</label>
+											<label class="control-label" for="C3"><strong>C3</strong> - Aftermarket computer system (any non-BTM “stand-alone” or “piggyback”)</label>
 											<select class="form-control dropdown-input" data-section="engine" name="C3">
 												<option value="0" selected>None</option>
-												<option value="3">Naturally Aspirated</option>
-												<option value="10">Forced Induction</option>
+												<option value="3">Naturally Aspirated +3</option>
+												<option value="10">Forced Induction +10</option>
 											</select>
 										</div>
 										
@@ -258,15 +258,15 @@
 										</div>
 										
 										<div class="form-group label-static">
-											<label class="control-label" for="C7"><strong>C7</strong> - Non-BTM, modified/ported, or deleted intake manifold: 4cyl +1, 6cyl +2, 8cyl +3, 12A &13B rotary +2, all other rotary +3</label>
+											<label class="control-label" for="C7"><strong>C7</strong> - Non-BTM, modified/ported, or deleted intake manifold</label>
 											<select class="form-control dropdown-input" data-section="engine" name="C7">
 												<option value="0" selected>None</option>
-												<option value="1">4 cyl</option>
-												<option value="2">6 cyl</option>
-												<option value="3">8 cyl</option>
-												<option value="2">12A</option>
-												<option value="2">13B</option>
-												<option value="3">All other rotart</option>
+												<option value="1">4 cyl +1</option>
+												<option value="2">6 cyl +2</option>
+												<option value="3">8 cyl +3</option>
+												<option value="2">12A +2</option>
+												<option value="2">13B +2</option>
+												<option value="3">All other rotary +3</option>
 											</select>
 										</div>
 										
@@ -327,15 +327,15 @@
 										</div>
 										
 										<div class="form-group label-static">
-											<label class="control-label" for="C16"><strong>C16</strong> - Increased displacement by: <1.5% +0, 1.5% to <5.5% +4, 5.5% to <7% +6, 7% to <10% +8, 10% to <15% + 10, 15% to <20% +15, > 20% +20.</label>
+											<label class="control-label" for="C16"><strong>C16</strong> - Increased displacement by</label>
 											<select class="form-control dropdown-input" data-section="engine" name="C16">
 												<option value="0" selected><1.5%</option>
-												<option value="4">1.5% to <5.5%</option>
-												<option value="6">5.5% to <7%</option>
-												<option value="8">7% to <10%</option>
-												<option value="10">10% to <15%</option>
-												<option value="15">15% to <20%</option>
-												<option value="20">>20%</option>
+												<option value="4">1.5% to <5.5% +4</option>
+												<option value="6">5.5% to <7% +6</option>
+												<option value="8">7% to <10% +8</option>
+												<option value="10">10% to <15% +10</option>
+												<option value="15">15% to <20% +15</option>
+												<option value="20">>20% +20</option>
 											</select>
 										</div>
 										
@@ -354,13 +354,13 @@
 										</div>
 										
 										<div class="form-group label-static">
-											<label class="control-label" for="C19"><strong>C19</strong> - Any modification that results in increased engine compression ratio (including head shaving or decking block to factory specs) 0.50 or less +0, >0.50 +3, >1.0 +6, >2.0 +10, >3.0 +15</label>
+											<label class="control-label" for="C19"><strong>C19</strong> - Any modification that results in increased engine compression ratio (including head shaving or decking block to factory specs)</label>
 											<select class="form-control dropdown-input" data-section="engine" name="C19">
 												<option value="0" selected>0.50 or less</option>
-												<option value="3">>0.50</option>
-												<option value="6">>1.0</option>
-												<option value="10">>2.0</option>
-												<option value="15">>3.0</option>
+												<option value="3">>0.50 +3</option>
+												<option value="6">>1.0 +6</option>
+												<option value="10">>2.0 +10</option>
+												<option value="15">>3.0 +15</option>
 											</select>
 										</div>
 										
@@ -666,33 +666,68 @@
 									<fieldset>
 										<legend>Section G - Aerodynamics<span class="pull-right">Points: <strong id="subtotal-aerodynamics">0</strong></span></legend>
 										<div class="label-static">
-											<label class="control-label" for="G1"><strong>G1</strong> - Add, replace, or modify front fascia or air dam +3 </label>
-											<p class="help-block">(except as provided for in the applicable No-Points modification list). The air dam must be vertical (5° tolerance) and must not protrude from the side of the vehicle or it will be assessed an additional +3 points.</p>
-											<p class="help-block">Additional points must be assessed below for any component of the added/replaced/modified fascia or air dam that performs the functions listed in G2 and/or G3 below</p>
+											<label class="control-label" for="G1"><strong>G1</strong> - Add, replace, or modify front fascia or air dam +3 <a data-toggle="modal" data-target="#g1-modal" class="fa fa-question-circle-o" aria-hidden="true" href="#"></a></label>
 											<select class="form-control dropdown-input" data-section="aerodynamics" name="G1">
 												<option value="0" selected>None</option>
 												<option value="3">Basic Air Dam</option>
 												<option value="6">Additional Assessment</option>
 											</select>
+											<div class="modal" id="g1-modal">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<div class="modal-body">
+															<p>Except as provided for in the applicable No-Points modification list. The air dam must be vertical (5° tolerance) and must not protrude from the side of the vehicle or it will be assessed an additional +3 points.</p>
+															<p>Additional points must be assessed below for any component of the added/replaced/modified fascia or air dam that performs the functions listed in G2 and/or G3 below</p>
+														</div>
+													</div>
+												</div>
+											</div>
 										</div>
-
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="3" data-section="aerodynamics" name="G2">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>G2</strong> - Add, replace or modify a single front splitter +3  This part may extend horizontally past the side of the vehicle no greater than 5".  If any portion of this part that protrudes from the side of the vehicle is not parallel to the ground then additional points must be assessed for canards in G3 below.  No material, filler or part may extend beyond the vertical reach of the BTM front fascia without taking points for fascia modification points above in G1.
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>G2</strong> - Add, replace or modify a single front splitter +3 <a data-toggle="modal" data-target="#g2-modal" class="fa fa-question-circle-o" aria-hidden="true" href="#"></a>
 											</label>
+											<div class="modal" id="g2-modal">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<div class="modal-body">
+															<p>This part may extend horizontally past the side of the vehicle no greater than 5".  If any portion of this part that protrudes from the side of the vehicle is not parallel to the ground then additional points must be assessed for canards in G3 below.  No material, filler or part may extend beyond the vertical reach of the BTM front fascia without taking points for fascia modification points above in G1.</p>
+														</div>
+													</div>
+												</div>
+											</div>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="2" data-section="aerodynamics" name="G3">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>G3</strong> - Add or modify canards/winglets (includes portions of an added/modified/replaced fascia that provide a downward force other than that listed in G2 above) +2
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>G3</strong> - Add or modify canards/winglets +2 <a data-toggle="modal" data-target="#g3-modal" class="fa fa-question-circle-o" aria-hidden="true" href="#"></a>
 											</label>
+											<div class="modal" id="g3-modal">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<div class="modal-body">
+															<p>Includes portions of an added/modified/replaced fascia that provide a downward force other than that listed in G2 above</p>
+														</div>
+													</div>
+												</div>
+											</div>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="4" data-section="aerodynamics" name="G4">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>G4</strong> - Add, replace, or modify rear wing and/or spoiler +4  (a rear wing or spoiler may not exceed a height of 8" above the roofline (or BTM windshield height for convertibles), or a width greater than the width of the car body.  (note additional points must be assessed for end plates greater than 12" in height G8 below))
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>G4</strong> - Add, replace, or modify rear wing and/or spoiler +4 <a data-toggle="modal" data-target="#g4-modal" class="fa fa-question-circle-o" aria-hidden="true" href="#"></a>
 											</label>
+											<div class="modal" id="g4-modal">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<div class="modal-body">
+															<p>a rear wing or spoiler may not exceed a height of 8" above the roofline (or BTM windshield height for convertibles), or a width greater than the width of the car body.</p>
+															<p>Note: additional points must be assessed for end plates greater than 12" in height G8 below</p>
+														</div>
+													</div>
+												</div>
+											</div>
 										</div>
 										<div class="checkbox">
 											<label>

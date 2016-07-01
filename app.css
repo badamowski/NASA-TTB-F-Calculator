@@ -31,8 +31,20 @@
   font-size: 4em;
 }
 
+.checkbox label, .radio label, label{
+  font-size: 12px;
+}
+
+a {
+  color: #F8102A;;
+}
+
 a:focus, a:hover {
   color: #ac0b1d !important;
+}
+
+.fa.fa-question-circle-o {
+  font-size: larger;
 }
 
 .radio input[type=radio]:checked~.check, label.radio-inline input[type=radio]:checked~.check {
@@ -59,6 +71,7 @@ a:focus, a:hover {
 
 .alert.alert-danger {
   background-color: #F8102A;
+  color: white;
 }
 
 .btn-group-raised .btn.btn-danger, .btn-group-raised .input-group-btn .btn.btn-danger, .btn.btn-fab.btn-danger, .btn.btn-raised.btn-danger, .input-group-btn .btn.btn-fab.btn-danger, .input-group-btn .btn.btn-raised.btn-danger {
