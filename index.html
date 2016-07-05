@@ -60,6 +60,9 @@
 								<form>
 									<fieldset>
 										<legend>Base Class</legend>
+										<p>
+											Find your car's Base Class and Weight in the <a href="https://nasa-assets.s3.amazonaws.com/document/document/481/2016_Time_Trial_Official_Rules.pdf" target="_blank">Official Rule Book <i class="fa fa-external-link" aria-hidden="true"></i></a>
+										</p>
 										<div class="form-group label-static">
 											<label class="control-label" for="baseClass">Base Class</label>
 											<select class="form-control input" id="baseClassSelect" name="baseClass">
@@ -71,6 +74,13 @@
 												<option value="TTG">TTG</option>
 												<option value="TTH">TTH</option>
 											</select>
+										</div>
+										<div class="form-group label-static">
+											<label class="control-label">Base Weight/Listed Weight</label>
+											<div class="input-group">
+												<input type="number" id="base-weight-input" class="form-control">
+												<span class="input-group-addon">lbs</span>
+											</div>
 										</div>
 										<div class="form-group label-static">
 											<label class="control-label" for="asterixPoints">Asterisk Points</label>
@@ -189,12 +199,14 @@
 									<fieldset>
 										<legend>Section B - Weight Reduction<span class="pull-right">Points: <strong id="subtotal-weight">0</strong></span></legend>
 										<div>
+											<label class="control-label">Minimum Competition Weight</label>
+											<div class="input-group">
+												<input type="number" id="competition-weight-input" class="form-control">
+												<span class="input-group-addon">lbs</span>
+											</div>
+											<br>
 											<label>Base Weight/Listed Weight</label>
-											<p><strong id="base-weight-value"></strong> lbs</p>
-											<div id="base-weight-slider" class="slider"></div>
-											<label>Minimum Competition Weight</label>
-											<p><strong id="competition-weight-value"></strong> lbs</p>
-											<div id="competition-weight-slider" class="slider"></div>
+											<p><strong class="base-weight-value"></strong> lbs</p>
 										</div>
 										<div>
 											<strong id="weightDifference">0</strong> lbs reduction = <strong id="weightPoints">0</strong> points
@@ -215,13 +227,13 @@
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="5" data-section="engine" name="C1">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;Forced Induction Vehicles Check Box (unless re-classed by Dyno testing) +5
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;Forced Induction Vehicles Check Box (unless re-classed by Dyno testing) +5
 											</label>
 										</div>							
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="0" data-section="engine" name="C1">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>C1, C2</strong> - See ruleset please. Check box if your car has been reclassified by National Director under either of these rules or if you have a custom reclassification from the National Director
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>C1, C2</strong> - See ruleset please. Check box if your car has been reclassified by National Director under either of these rules or if you have a custom reclassification from the National Director
 											</label>
 										</div>
 										
@@ -237,7 +249,7 @@
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="1" data-section="engine" name="C4">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>C4</strong> - Modification of the BTM air intake/box, air filter location, air piping to the turbo/supercharger/intercooler/throttle body/carburetor, or hood/fascia/fender air inlet(s), outlets, or vents +1 (air filter upgrade alone 0 pts.)
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>C4</strong> - Modification of the BTM air intake/box, air filter location, air piping to the turbo/supercharger/intercooler/throttle body/carburetor, or hood/fascia/fender air inlet(s), outlets, or vents +1 (air filter upgrade alone 0 pts.)
 											</label>
 										</div>
 										
@@ -253,7 +265,7 @@
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="3" data-section="engine" name="C6">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>C6</strong> - Non-BTM or modified carburetor, fuel rail, fuel injectors, fuel pump(s), and/or fuel pressure regulator +2 (no points for fuel pump alone if using BTM fuel and timing maps, sensor inputs, and ignition timing)
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>C6</strong> - Non-BTM or modified carburetor, fuel rail, fuel injectors, fuel pump(s), and/or fuel pressure regulator +2 (no points for fuel pump alone if using BTM fuel and timing maps, sensor inputs, and ignition timing)
 											</label>
 										</div>
 										
@@ -273,56 +285,56 @@
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="6" data-section="engine" name="C8">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>C8</strong> - Water injection system +6 (alcohol-water mixtures are not permitted)
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>C8</strong> - Water injection system +6 (alcohol-water mixtures are not permitted)
 											</label>
 										</div>
 										
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="0" data-section="engine" name="C9" disabled>
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>C9</strong> - C9 - Nitrous Oxide injection is not permitted
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>C9</strong> - C9 - Nitrous Oxide injection is not permitted
 											</label>
 										</div>
 										
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="1" data-section="engine" name="C10">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>C10</strong> - Replacement pulleys (other than for supercharger) or non-electrical fan removal +1
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>C10</strong> - Replacement pulleys (other than for supercharger) or non-electrical fan removal +1
 											</label>
 										</div>
 										
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="4" data-section="engine" name="C11">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>C11</strong> - Replacement pulley for BTM supercharger or replacement of any pulley that affects BTM supercharger speed +4
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>C11</strong> - Replacement pulley for BTM supercharger or replacement of any pulley that affects BTM supercharger speed +4
 											</label>
 										</div>
 										
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="4" data-section="engine" name="C12">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>C12</strong> - Aftermarket boost controller or modification/alteration of the BTM vacuum line(s) that serve to function as a boost controller +4
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>C12</strong> - Aftermarket boost controller or modification/alteration of the BTM vacuum line(s) that serve to function as a boost controller +4
 											</label>
 										</div>
 										
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="3" data-section="engine" name="C13">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>C13</strong> - Aftermarket or Modified Wastegate Actuator, wastegate, or vacuum line(s) that serve to control the wastegate actuator function or increase peak boost +3
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>C13</strong> - Aftermarket or Modified Wastegate Actuator, wastegate, or vacuum line(s) that serve to control the wastegate actuator function or increase peak boost +3
 											</label>
 										</div>
 										
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="7" data-section="engine" name="C14">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>C14</strong> - Add aftermarket intercooler +7
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>C14</strong> - Add aftermarket intercooler +7
 											</label>
 										</div>
 										
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="4" data-section="engine" name="C15">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>C15</strong> - Non-BTM or modified intercooler +4 (Intercooler sprayers must meet BTM definition, otherwise not allowed)
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>C15</strong> - Non-BTM or modified intercooler +4 (Intercooler sprayers must meet BTM definition, otherwise not allowed)
 											</label>
 										</div>
 										
@@ -342,14 +354,14 @@
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="6" data-section="engine" name="C17">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>C17</strong> - Modified or Non-BTM camshafts, rocker arms, pushrods, or cam timing gears (for one or more) +6
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>C17</strong> - Modified or Non-BTM camshafts, rocker arms, pushrods, or cam timing gears (for one or more) +6
 											</label>
 										</div>
 										
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="6" data-section="engine" name="C18">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>C18</strong> - Valve size change, modified, ported, and/or polished BTM heads (other than simple shaving of the head only) + 6
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>C18</strong> - Valve size change, modified, ported, and/or polished BTM heads (other than simple shaving of the head only) + 6
 											</label>
 										</div>
 										
@@ -367,7 +379,7 @@
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="4" data-section="engine" name="C20">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>C20</strong> - De-stroked engine +4
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>C20</strong> - De-stroked engine +4
 											</label>
 										</div>
 										
@@ -382,19 +394,19 @@
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="5" data-section="engine" name="C22">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>C22</strong> - Modification, porting, or replacement of the BTM exhaust manifold or header(s) (includes any/all other exhaust and catalytic converter modifications) +5
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>C22</strong> - Modification, porting, or replacement of the BTM exhaust manifold or header(s) (includes any/all other exhaust and catalytic converter modifications) +5
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="3" data-section="engine" name="C23">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>C23</strong> - Any modification to the BTM exhaust piping and/or catalytic converter (includes muffler modification or replacement) +3
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>C23</strong> - Any modification to the BTM exhaust piping and/or catalytic converter (includes muffler modification or replacement) +3
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="4" data-section="engine" name="C24">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>C24</strong> - Non-BTM or modified resonator(s) or muffler(s) only (no exhaust piping modifications) +1
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>C24</strong> - Non-BTM or modified resonator(s) or muffler(s) only (no exhaust piping modifications) +1
 											</label>
 										</div>
 										<a href="javascript:void(0)" class="btn btn-danger btn-raised next-button" data-section="weight"><i class="fa fa-angle-left" aria-hidden="true"></i> Weight</a>
@@ -413,55 +425,55 @@
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="7" data-section="drivetrain" name="D1">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>D1</strong> - Non-BTM sequential (semi-automatic) or dog-ring transmission (non-synchromesh) - includes altered gear ratios +7 (note - automatic with torque converter exempt)
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>D1</strong> - Non-BTM sequential (semi-automatic) or dog-ring transmission (non-synchromesh) - includes altered gear ratios +7 (note - automatic with torque converter exempt)
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="6" data-section="drivetrain" name="D2">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>D2</strong> - Double Clutch Transmissions with altered gear ratios +6 (do not also assess D3 & D4)
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>D2</strong> - Double Clutch Transmissions with altered gear ratios +6 (do not also assess D3 & D4)
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="3" data-section="drivetrain" name="D3">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>D3</strong> - Modify number of forward gears in transmission or altered gear ratios +3
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>D3</strong> - Modify number of forward gears in transmission or altered gear ratios +3
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="3" data-section="drivetrain" name="D4">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>D4</strong> - Added paddle/electronic shift +3
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>D4</strong> - Added paddle/electronic shift +3
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="3" data-section="drivetrain" name="D5">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>D5</strong> - Added limited slip differential or welded/locked differential +3
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>D5</strong> - Added limited slip differential or welded/locked differential +3
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="1" data-section="drivetrain" name="D6">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>D6</strong> - Changed or modified limited slip differential (or welded/locked BTM LSD) +1
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>D6</strong> - Changed or modified limited slip differential (or welded/locked BTM LSD) +1
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="3" data-section="drivetrain" name="D7">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>D7</strong> - Added traction control +3 (no points if proven disabled during competition)
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>D7</strong> - Added traction control +3 (no points if proven disabled during competition)
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="7" data-section="drivetrain" name="D8">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>D8</strong> - Relocation of engine/transmission between 1 and 10 inches of the BTM location +7 (note: relocation of less than 1 inch is not assessed points.  Original engine location shall be based on the BTM rear face of the engine block and BTM crankshaft centerline)
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>D8</strong> - Relocation of engine/transmission between 1 and 10 inches of the BTM location +7 (note: relocation of less than 1 inch is not assessed points.  Original engine location shall be based on the BTM rear face of the engine block and BTM crankshaft centerline)
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="3" data-section="drivetrain" name="D9">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>D9</strong> - Modification/upgrade from a fixed to a floating rear axle +3
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>D9</strong> - Modification/upgrade from a fixed to a floating rear axle +3
 											</label>
 										</div>
 										<a href="javascript:void(0)" class="btn btn-danger btn-raised next-button" data-section="engine"><i class="fa fa-angle-left" aria-hidden="true"></i> Engine</a>
@@ -480,133 +492,133 @@
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="8" data-section="suspension" name="E1">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>E1</strong> - Non-BTM shocks/struts/dampers with an external reservoir or more than two ranges of adjustment - must still take points for springs below in E5.  +8.  (example: compression (bump), low speed rebound and high speed rebound is 3 ranges of adjustment)(May have spherical tops and/or bottoms)
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>E1</strong> - Non-BTM shocks/struts/dampers with an external reservoir or more than two ranges of adjustment - must still take points for springs below in E5.  +8.  (example: compression (bump), low speed rebound and high speed rebound is 3 ranges of adjustment)(May have spherical tops and/or bottoms)
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="5" data-section="suspension" name="E2">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>E2</strong> - Non-BTM shocks/struts/dampers with a "piggy back" external reservoir (fixed reservoir w/o connecting hose) OR with shaft diameter 40mm or greater - must still take points for springs below in E5.  +5 (May have spherical tops and/or bottoms)
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>E2</strong> - Non-BTM shocks/struts/dampers with a "piggy back" external reservoir (fixed reservoir w/o connecting hose) OR with shaft diameter 40mm or greater - must still take points for springs below in E5.  +5 (May have spherical tops and/or bottoms)
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="3" data-section="suspension" name="E3">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>E3</strong> - Non-BTM or modified/re-valved shocks/struts/dampers +3 (all others)(E5 springs not included)(May have spherical tops and/or bottoms)
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>E3</strong> - Non-BTM or modified/re-valved shocks/struts/dampers +3 (all others)(E5 springs not included)(May have spherical tops and/or bottoms)
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="1" data-section="suspension" name="E4">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>E4</strong> - Changing the mount orientation/design of the BTM shock and/or spring perch to invert the front shocks/struts (includes non-BTM inverted shocks/struts) +1
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>E4</strong> - Changing the mount orientation/design of the BTM shock and/or spring perch to invert the front shocks/struts (includes non-BTM inverted shocks/struts) +1
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="2" data-section="suspension" name="E5">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>E5</strong> - Non-BTM or modified coil springs, bump stops, leaf springs/spacers/brackets, or torsion bars +2
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>E5</strong> - Non-BTM or modified coil springs, bump stops, leaf springs/spacers/brackets, or torsion bars +2
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="2" data-section="suspension" name="E6">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>E6</strong> - Conversion of torsion bar/leaf spring suspension to coil spring and strut/shock suspension +2
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>E6</strong> - Conversion of torsion bar/leaf spring suspension to coil spring and strut/shock suspension +2
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="2" data-section="suspension" name="E7">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>E7</strong> - Add, replace, remove, or modify anti-roll bars (swaybars - front, rear, or both) or end links - may have spherical joints on the end links and/or relocation of the mounting points without additional assessment.  +2
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>E7</strong> - Add, replace, remove, or modify anti-roll bars (swaybars - front, rear, or both) or end links - may have spherical joints on the end links and/or relocation of the mounting points without additional assessment.  +2
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="4" data-section="suspension" name="E8">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>E8</strong> - Non-BTM driver/cockpit adjustable swaybar or other suspension settings +4
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>E8</strong> - Non-BTM driver/cockpit adjustable swaybar or other suspension settings +4
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="4" data-section="suspension" name="E9">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>E9</strong> - Replace, modify, or remove control arms (including toe arms/links)(other than plates, shims, or eccentric bolts/bushings for simple camber/caster adjustment only) or RWD/AWD rear trailing arms (may have spherical/metallic joint for the connection to the spindle/knuckle) +4
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>E9</strong> - Replace, modify, or remove control arms (including toe arms/links)(other than plates, shims, or eccentric bolts/bushings for simple camber/caster adjustment only) or RWD/AWD rear trailing arms (may have spherical/metallic joint for the connection to the spindle/knuckle) +4
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="1" data-section="suspension" name="E10">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>E10</strong> - Non-BTM rear control arms on FWD vehicles (for stiffness & wheel alignment only, no change in suspension mount or pick-up points from stock) +1  (if both front and rear use E9)
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>E10</strong> - Non-BTM rear control arms on FWD vehicles (for stiffness & wheel alignment only, no change in suspension mount or pick-up points from stock) +1  (if both front and rear use E9)
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="1" data-section="suspension" name="E11">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>E11</strong> - Non-OEM rear trailing arms on FWD (for stiffness & wheel alignment only, no change in suspension mount or pick-up points from stock) +1
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>E11</strong> - Non-OEM rear trailing arms on FWD (for stiffness & wheel alignment only, no change in suspension mount or pick-up points from stock) +1
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="6" data-section="suspension" name="E12">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>E12</strong> - Using the alternate control arm mounting location on cars equipped BTM with multiple choices +6 (ex to increase track width)
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>E12</strong> - Using the alternate control arm mounting location on cars equipped BTM with multiple choices +6 (ex to increase track width)
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="6" data-section="suspension" name="E13">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>E13</strong> - Relocation of front suspension mounting points +6 (Includes modifications to spindles and knuckles that relocate control arm mounting points in space - such as "drop spindles")
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>E13</strong> - Relocation of front suspension mounting points +6 (Includes modifications to spindles and knuckles that relocate control arm mounting points in space - such as "drop spindles")
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="6" data-section="suspension" name="E14">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>E14</strong> -  Relocation of rear suspension mounting points +6 (Includes modifications to spindles and knuckles that relocate control arm mounting points in space - such as "drop spindles")
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>E14</strong> -  Relocation of rear suspension mounting points +6 (Includes modifications to spindles and knuckles that relocate control arm mounting points in space - such as "drop spindles")
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="2" data-section="suspension" name="E15">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>E15</strong> - Front steering tie rod bump steer modifications or shimming of the steering rack +2
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>E15</strong> - Front steering tie rod bump steer modifications or shimming of the steering rack +2
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="2" data-section="suspension" name="E16">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>E16</strong> - Alteration of ball joints/dive angles +2
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>E16</strong> - Alteration of ball joints/dive angles +2
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="4" data-section="suspension" name="E17">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>E17</strong> - Add panhard rod or Watt’s link (regardless of whether or not the Watts link replaces a BTM panhard rod or the panhard rod replaces a BTM Watts link) (may have spherical joints without an additional points assessment) +4
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>E17</strong> - Add panhard rod or Watt’s link (regardless of whether or not the Watts link replaces a BTM panhard rod or the panhard rod replaces a BTM Watts link) (may have spherical joints without an additional points assessment) +4
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="2" data-section="suspension" name="E18">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>E18</strong> - Replace or modify a BTM panhard rod or Watt’s link (may have spherical joints without additional assessment) +2
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>E18</strong> - Replace or modify a BTM panhard rod or Watt’s link (may have spherical joints without additional assessment) +2
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="4" data-section="suspension" name="E19">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>E19</strong> - Add torque arm +4
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>E19</strong> - Add torque arm +4
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="2" data-section="suspension" name="E20">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>E20</strong> - Replace or modify a BTM torque arm +2
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>E20</strong> - Replace or modify a BTM torque arm +2
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="4" data-section="suspension" name="E21">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>E21</strong> -  Add a 3rd link to the rear suspension that does not penetrate the floor +4
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>E21</strong> -  Add a 3rd link to the rear suspension that does not penetrate the floor +4
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="3" data-section="suspension" name="E22">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>E22</strong> - Metallic replacement suspension bushings (Heim joints/spherical joints) +3 (except for shock tops or bottoms assessed in E.1),E.2), or E.3) above, pillow ball camber plate joints, sway bar endlinks if taking modification E7, control arm spindle/knuckle joints if taking mod E9, and/or Panhard/Watts/3rd link parts if taking mod(s) E17/E18/E19/E20/E21)
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>E22</strong> - Metallic replacement suspension bushings (Heim joints/spherical joints) +3 (except for shock tops or bottoms assessed in E.1),E.2), or E.3) above, pillow ball camber plate joints, sway bar endlinks if taking modification E7, control arm spindle/knuckle joints if taking mod E9, and/or Panhard/Watts/3rd link parts if taking mod(s) E17/E18/E19/E20/E21)
 											</label>
 										</div>
 										<a href="javascript:void(0)" class="btn btn-danger btn-raised next-button" data-section="drivetrain"><i class="fa fa-angle-left" aria-hidden="true"></i> Drivetrain</a>
@@ -625,31 +637,31 @@
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="2" data-section="chassis" name="F1">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>F1</strong> - Non-BTM, modified, or relocated brake calipers and/or brake caliper brackets and/or brake rotor diameter +2
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>F1</strong> - Non-BTM, modified, or relocated brake calipers and/or brake caliper brackets and/or brake rotor diameter +2
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="1" data-section="chassis" name="F2">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>F2</strong> - Add front lower stress/arm brace (two attachment points maximum) +1
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>F2</strong> - Add front lower stress/arm brace (two attachment points maximum) +1
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="1" data-section="chassis" name="F3">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>F3</strong> - Add a third or more attachment point to front or rear strut tower bar (or replace existing/BTM 3 attachment point brace) +1 (Additional attachment points must not be tied to any other type of mounting point with anything other than sheetmetal)
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>F3</strong> - Add a third or more attachment point to front or rear strut tower bar (or replace existing/BTM 3 attachment point brace) +1 (Additional attachment points must not be tied to any other type of mounting point with anything other than sheetmetal)
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="3" data-section="chassis" name="F4">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>F4</strong> - Add or modify other chassis stiffening devices or fabricated parts (such as lower stress/arm braces with > 2 attachment points, subframe connectors, subframe braces, subframe mounts, and/or non-rubber or non-poly subframe mounts/bushings, etc.) +3
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>F4</strong> - Add or modify other chassis stiffening devices or fabricated parts (such as lower stress/arm braces with > 2 attachment points, subframe connectors, subframe braces, subframe mounts, and/or non-rubber or non-poly subframe mounts/bushings, etc.) +3
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="6" data-section="chassis" name="F5">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>F5</strong> - Increase in track width greater than 4 inches due to non-BTM axles, control arms, brake rotors/hats, wheel spacers, hubs, wheel offset, and/or camber adjustment.  +6  (measured from the inside of one tire to the outside of the opposite tire at ground level - averaging the measurements in front of and behind the contact patch to negate the effect of toe)
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>F5</strong> - Increase in track width greater than 4 inches due to non-BTM axles, control arms, brake rotors/hats, wheel spacers, hubs, wheel offset, and/or camber adjustment.  +6  (measured from the inside of one tire to the outside of the opposite tire at ground level - averaging the measurements in front of and behind the contact patch to negate the effect of toe)
 											</label>
 										</div>
 										<a href="javascript:void(0)" class="btn btn-danger btn-raised next-button" data-section="suspension"><i class="fa fa-angle-left" aria-hidden="true"></i> Suspension</a>
@@ -686,7 +698,7 @@
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="3" data-section="aerodynamics" name="G2">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>G2</strong> - Add, replace or modify a single front splitter +3 <a data-toggle="modal" data-target="#g2-modal" class="fa fa-question-circle-o" aria-hidden="true" href="#"></a>
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>G2</strong> - Add, replace or modify a single front splitter +3 <a data-toggle="modal" data-target="#g2-modal" class="fa fa-question-circle-o" aria-hidden="true" href="#"></a>
 											</label>
 											<div class="modal" id="g2-modal">
 												<div class="modal-dialog">
@@ -701,7 +713,7 @@
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="2" data-section="aerodynamics" name="G3">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>G3</strong> - Add or modify canards/winglets +2 <a data-toggle="modal" data-target="#g3-modal" class="fa fa-question-circle-o" aria-hidden="true" href="#"></a>
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>G3</strong> - Add or modify canards/winglets +2 <a data-toggle="modal" data-target="#g3-modal" class="fa fa-question-circle-o" aria-hidden="true" href="#"></a>
 											</label>
 											<div class="modal" id="g3-modal">
 												<div class="modal-dialog">
@@ -716,7 +728,7 @@
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="4" data-section="aerodynamics" name="G4">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>G4</strong> - Add, replace, or modify rear wing and/or spoiler +4 <a data-toggle="modal" data-target="#g4-modal" class="fa fa-question-circle-o" aria-hidden="true" href="#"></a>
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>G4</strong> - Add, replace, or modify rear wing and/or spoiler +4 <a data-toggle="modal" data-target="#g4-modal" class="fa fa-question-circle-o" aria-hidden="true" href="#"></a>
 											</label>
 											<div class="modal" id="g4-modal">
 												<div class="modal-dialog">
@@ -732,55 +744,55 @@
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="5" data-section="aerodynamics" name="G5">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>G5</strong> - Add or fabricate flat bottom/belly tray (rearward of the centerline of the front axle) +5
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>G5</strong> - Add or fabricate flat bottom/belly tray (rearward of the centerline of the front axle) +5
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="2" data-section="aerodynamics" name="G6">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>G6</strong> - Add rear diffuser +2 (note: additional points must be assessed for any vertical panels in the diffuser that exceed 5" in height per G8 below) (If taking +2 here for G.6) do not also take assessment for G.7) below)
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>G6</strong> - Add rear diffuser +2 (note: additional points must be assessed for any vertical panels in the diffuser that exceed 5" in height per G8 below) (If taking +2 here for G.6) do not also take assessment for G.7) below)
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="1" data-section="aerodynamics" name="G7">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>G7</strong> - Replace or modify BTM rear diffuser, rear bumper cover, or rear “fascia” +1 (note: additional points must be assessed for any vertical panels in the diffuser that exceed 5" in height per G8 below)
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>G7</strong> - Replace or modify BTM rear diffuser, rear bumper cover, or rear “fascia” +1 (note: additional points must be assessed for any vertical panels in the diffuser that exceed 5" in height per G8 below)
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="2" data-section="aerodynamics" name="G8">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>G8</strong> - Add rear vertical panels in any location (note: see G4, G7 and G10) +2
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>G8</strong> - Add rear vertical panels in any location (note: see G4, G7 and G10) +2
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="2" data-section="aerodynamics" name="G9">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>G9</strong> - Add or modify side skirts +2 (side skirts must be vertical only or an OEM option only, and cannot connect to any other aero component)
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>G9</strong> - Add or modify side skirts +2 (side skirts must be vertical only or an OEM option only, and cannot connect to any other aero component)
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="1" data-section="aerodynamics" name="G10">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>G10</strong> - Add vortex generator to roof, rear window, or rear deck lid +1 (note: additional points must be assessed for any vertical panel of the vortex generator that is greater than 5" in height per G8 above)
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>G10</strong> - Add vortex generator to roof, rear window, or rear deck lid +1 (note: additional points must be assessed for any vertical panel of the vortex generator that is greater than 5" in height per G8 above)
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="7" data-section="aerodynamics" name="G11">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>G11</strong> - Removal of the front windshield/windshield frame +7 (raking is not permitted)
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>G11</strong> - Removal of the front windshield/windshield frame +7 (raking is not permitted)
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="2" data-section="aerodynamics" name="G12">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>G12</strong> - Front side window frame air dams/diverters (driver and/or passenger side) +2
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>G12</strong> - Front side window frame air dams/diverters (driver and/or passenger side) +2
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="5" data-section="aerodynamics" name="G13">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>G13</strong> - Add a non-OEM hardtop to a convertible that is not the identical shape and size of either the BTM or OEM option hardtop for that car model.  +5  (note: the top must not extend rearward of the front edge of the rear deck lid - "fastback" tops and tonneau covers are not permitted)
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>G13</strong> - Add a non-OEM hardtop to a convertible that is not the identical shape and size of either the BTM or OEM option hardtop for that car model.  +5  (note: the top must not extend rearward of the front edge of the rear deck lid - "fastback" tops and tonneau covers are not permitted)
 											</label>
 										</div>
 										<br>
@@ -807,13 +819,13 @@
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="2" data-section="rollcage" name="H1">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>H1</strong> - One or more bars that penetrate the front bulkhead/firewall +2
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>H1</strong> - One or more bars that penetrate the front bulkhead/firewall +2
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" class="checkbox-input" data-points="2" data-section="rollcage" name="H2">
-												<span class="checkbox-material"><span class="check"></span></span>&nbsp;<strong>H2</strong> - Any other attachment point to the chassis not specified as points-free in ruleset +2
+												<span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;<strong>H2</strong> - Any other attachment point to the chassis not specified as points-free in ruleset +2
 											</label>
 										</div>
 										<br>

@@ -13,6 +13,7 @@ var total = 0,
 	},
 	classOrder = ["TTH", "TTF", "TTE", "TTD", "TTC", "TTB", "TTU123"],
 	savedBaseClass = "TTD",
+	defaultWeight = 3000,
 	currentClass;
 
 function init(){
@@ -24,7 +25,7 @@ function init(){
 	});
 
 	buildTireSizeSlider();
-	buildWeightSliders();
+	$("#base-weight-input").val(defaultWeight).trigger("change");
 	$("#baseClassSelect").val(savedBaseClass).trigger("change");
 };
 
@@ -161,41 +162,19 @@ function buildTireSizeSlider(){
 	});
 };
 
-function buildWeightSliders(){
-	noUiSlider.create($("#base-weight-slider").get(0), {
-		start: 3000,
-		step: 1,
-		range: {
-			'min': 500,
-			'max': 10000
-		}
-	});
+$("#base-weight-input").on("change", function(){
+	var value = parseInt($("#base-weight-input").val());
+	$(".base-weight-value").html(value);
+	$("#competition-weight-input").val(value).trigger("change");
+});
 
-	noUiSlider.create($("#competition-weight-slider").get(0), {
-		start: 3000,
-		step: 1,
-		range: {
-			'min': 500,
-			'max': 10000
-		}
-	});
-
-	$("#base-weight-slider").get(0).noUiSlider.on('update', function( values, handle ) {
-		var value = parseInt(values[handle]);
-		$("#base-weight-value").html(value);
-		calculateWeightPoints();
-	});
-
-	$("#competition-weight-slider").get(0).noUiSlider.on('update', function( values, handle ) {
-		var value = parseInt(values[handle]);
-		$("#competition-weight-value").html(value);
-		calculateWeightPoints();
-	});
-};
+$("#competition-weight-input").on("change", function(){
+	calculateWeightPoints();
+});
 
 function calculateWeightPoints(){
-	var competitionWeight = $("#competition-weight-slider").get(0).noUiSlider.get(),
-		baseWeight = $("#base-weight-slider").get(0).noUiSlider.get(),
+	var competitionWeight = parseInt($("#competition-weight-input").val()),
+		baseWeight = parseInt($("#base-weight-input").val()),
 		difference = baseWeight - competitionWeight,
 		weightPoints = determineWeightPoints(difference);
 
