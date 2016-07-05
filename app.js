@@ -29,6 +29,10 @@ function init(){
 	$("#baseClassSelect").val(savedBaseClass).trigger("change");
 };
 
+$("form").on("submit", function(event){
+	event.preventDefault();
+});
+
 $("#baseClassSelect").on("change", function(baseClassSelect){
 	var $baseClassSelect = $(baseClassSelect.target),
 		baseClass = $baseClassSelect.val(),
